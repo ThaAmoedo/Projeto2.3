@@ -1,0 +1,307 @@
+
+*{
+
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+
+}
+:root{
+ 
+    --ff-heading: 'Epilogue', sans-serif;   /*font-family textos grandes*/
+    --ff-texting: 'Open sans', sans-serif;
+
+
+    --hue: 250;
+    --bg-primary: hsl(var(--hue), 22%, 20%);  /*background*/
+    --fc-primary:hsl(var(--hue), 0%, 100%); /*font-color*/
+    --fc-secundary:#BBB3E5;
+    --fc-secundary-dark: #090039;
+   /* --fc-secundary:hsl(var(--hue), 50%, 80%, );*/
+
+
+
+    /*--bg-primary: #28293E;  
+    --fc-primary:#FFFFFF;
+    --fc-secundary:#BBB3E5;*/
+
+    font-size: 62.5%;
+    --fs-body: 1.6rem;
+    --fs-heading: 4rem;
+} 
+
+body{
+
+    font-family: var(--ff-texting);
+   
+    background-color: var(--bg-primary);
+    color: var(--fc-primary);
+
+    font-size: var(--fs-body);
+}
+
+.page{
+
+    max-width: 33rem; /*329px*/
+    margin: 0 auto;
+}
+
+ 
+
+
+
+
+
+
+
+@media(min-width: 700px){
+
+    
+    :root{
+        
+        --fs-heading: 5.6rem;
+    }
+    .page{
+        max-width: 117rem;
+        padding: 0 6rem;
+    }
+
+}
+
+
+@media (min-width: 900px){
+
+
+    /*:root{
+
+        --fs-heading: 5.6rem;
+    }
+    .page{
+        max-width: 117rem;
+        padding: 0 6rem;
+    }*/
+
+main{
+
+     grid-template-areas: "colA colB colB"
+                          "colC colC colD";
+   /* display: grid;
+    grid-template-columns: 470px 670px   ;*/
+}
+
+  main div:nth-child(1){
+    grid-area: colA;
+}
+
+  main div:nth-child(2){
+    grid-area: colB;
+
+}
+main div:nth-child(3){
+    grid-area: colC;
+
+}
+main div:nth-child(4){
+    grid-area: colD;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+img{
+
+    width: 100%;
+    height: auto;
+}
+
+header{
+
+    margin: 10rem  0/*laterais*/   8rem;
+
+    font-family: var(--ff-heading);
+
+    text-align: center;
+
+    animation: topdown 700ms;
+    /*animation-name: topdown;
+    animation-duration: 700ms;*/
+
+    /*o cod  animation-fill-mode: forwards;  faz com que a animação fique na posição do ultimo comando (o comando q estiver no 100%, por exemplo)*/
+
+
+}
+
+header p {
+
+    font-weight: 400;
+
+    color: var(--fc-secundary);
+    text-transform: uppercase;
+
+
+    line-height: 3.2rem;
+    letter-spacing: 3px;
+
+    margin-bottom: 1.7rem;
+
+    animation: right 600ms;
+}
+
+
+header h1{
+     
+    font-weight: 800;
+    font-size: var(--fs-heading);
+    line-height: 4.8rem;
+}
+
+main{
+
+    margin-bottom: 15.0rem;
+
+   display: grid;
+   gap: 3.2rem;
+
+   animation: downtop 700ms/*time*/ 350ms/*delay*/ reverse   backwards;   /*backwards = ele é capaz de fazer o ponto 0 ser a propriedade padrão do elemnto  (sempre q diver delay vai ter q usar forwards ou backwards) */
+
+}
+
+.card{
+    position: relative;
+    font-family: var(--ff-heading);
+    
+}
+
+.card img{
+
+    height: 41.6rem;
+    object-fit: cover;   /*encaixe o objeto*/
+    border-radius: 6px;
+     
+    transition: all 200ms;
+
+    filter:  saturate(1.8);
+
+    /*filter: brightness(0.9);*/
+   
+    /*     ou
+    transition-property: transform ;
+    transition-duration: 200ms;*/
+
+
+    /*transition-timing-function: ease-in;*/
+}
+
+.card img:hover{
+
+    transform: scale(1.1);
+    opacity: 0.4;
+   filter: brightness(0.9);
+
+
+   /*filter:  saturate(1.8);*/
+   
+   /*transform: translateX(20px); */
+
+}
+
+.card h2 {
+
+    position: absolute;
+    bottom: 5.2rem;
+    left: 2.8rem;
+
+
+    font-size: 4rem;
+    font-weight: 800;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+
+    
+}
+
+.card h2 span{
+
+    border-radius: 2rem; /*20px em vez de 19px*/
+     
+     
+    background-color: var(--fc-primary);
+    font-size: var(--fs-body);
+    font-weight: 400;
+    
+
+    color:var(--fc-secundary-dark);
+
+    padding: 0   1.6rem;
+    height: 3.8rem;
+    
+
+    width: fit-content;
+
+    display: inline-flex;
+    align-items: center;
+
+}
+
+
+@keyframes right{  
+    0%{
+        opacity: 0;
+        transform: translatex(-220px);
+
+
+    }  
+
+
+    100%{
+        opacity: 1;
+        transform: translatex(0);
+
+    } 
+
+}
+
+@keyframes topdown{  /*topdown é o nome que eu escolhi*/
+
+    0%{
+        opacity: 0;
+        transform: translateY(-15px);
+
+
+    }  /*começa*/
+
+
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+
+    } /*para terminar a transição volta ao normal*/
+
+}
+
+
+@keyframes downtop{  
+
+    100%{
+        opacity: 0;
+        transform: translateY(15px);
+
+
+    }  
+
+}
+
+
+
+
